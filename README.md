@@ -9,6 +9,7 @@ Removes MSOL direct license assignments from users in the group specified by $Gr
 ## Warning
 Please note that if the user's working license is directly assigned and you are running this to enable their group based license, you will need to reprocess before the account can use the group based license. This can cause downtime. I recomend doing a change request so your users don't get mad. Or don't. Whatever. I'm not your boss.
 
+## Script
 ```PowerShell
 <#
 .SYNOPSIS
