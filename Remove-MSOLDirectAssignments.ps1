@@ -14,7 +14,7 @@
 .INPUTS
   None
 .OUTPUTS
-  Logs stored in $ENV:Userprofile\Desktop\PowerShell_Logs\Azure_DirectAssignmentRemoval.log
+  Logs stored in $ENV:Temp\PowerShell_Logs\Azure_DirectAssignmentRemoval.log
 .NOTES
   Version:        1.0
   Author:         Michael Cherneski
@@ -50,10 +50,9 @@ param(
 #                Assign Variables
 #-------------------------------------------------
 #Group Object ID already set as $GroupID
-#Log File Location $ENV:TEMP\PowerShell_Scripts\Logs\
-$LogFileDir = "$ENV:USERPROFILE\Desktop\PowerShell_Logs\"
+#Log File Location $ENV:TEMP\PowerShell_Logs\
+$LogFileDir = "$ENV:Temp\PowerShell_Logs\"
 If(!(Test-Path $LogFileDir)){mkdir $LogFileDir}
-#Log File Name (Typically Script Name)
 $LogFileName = "Azure_DirectAssignmentRemoval.log"
 #Combine log file dir and log file name
 $LogFile = "$LogFileDir" + "$LogFileName"
