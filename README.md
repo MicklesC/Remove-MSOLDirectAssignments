@@ -2,7 +2,7 @@
 Removes MSOL direct license assignments from users in a specified group.
 
 Requires the MSOnline PowerShell module and related AzureAD permissions.
-
+```PowerShell
 <#
 .SYNOPSIS
   Removes Directly assigned licenses from users in a specified group.
@@ -29,3 +29,4 @@ Requires the MSOnline PowerShell module and related AzureAD permissions.
 .EXAMPLE
 Remote-MSOLDirectAssignments -GroupID "XXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" -ReprocessUsers
 #>
+```
