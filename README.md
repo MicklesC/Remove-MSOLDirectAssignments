@@ -4,7 +4,7 @@
 - Related AzureAD Permissions
 
 ## Summary
-Removes MSOL direct license assignments from users in the group specified by $GroupID. I added the switches -ReprocessUsers and -ReprocessGroups to make reprocessing easier. Depending on the number of users in a group, this could take a while to run. I have also included ```Write-Host $Logstring ``` for debugging but if you don't want any output on the console you can remove that line from the LogWrite function. There is a progress bar included by default so you can track progress and make sure the script hasn't frozen up.
+Removes MSOL direct license assignments from users in the group specified by $GroupID. I added the switches -ReprocessUsers and -ReprocessGroups to make reprocessing easier. Depending on the number of users in a group, this could take a while to run. I have also included ```Write-Host $Logstring``` for debugging but if you don't want any output on the console you can remove that line from the LogWrite function. There is a progress bar included by default so you can track progress and make sure the script hasn't frozen up.
 
 ## Warning
 Please note that if the user's working license is directly assigned and you are running this to enable their group based license, you will need to reprocess before the account can use the group based license. This can cause downtime. I recomend doing a change request so your users don't get mad. Or don't. Whatever. I'm not your boss.
