@@ -34,13 +34,13 @@ param(
     [ValidatePattern("^[a-zA-Z0-9]{8}[-]{1}[a-zA-Z0-9]{4}[-][a-zA-Z0-9]{4}[-][a-zA-Z0-9]{4}[-][a-zA-Z0-9]{12}$")]
     [string]$GroupID,
     [Parameter(
-        Mandatory = $True,
+        Mandatory = $False,
         HelpMessage = "Reprocess users."
     )]
     [Alias("ReproUsers","Users")]
     [switch]$ReprocessUsers,
     [Parameter(
-        Mandatory = $True,
+        Mandatory = $false,
         HelpMessage = "Reprocess user"
     )]
     [Alias("ReproGroup","Group")]
@@ -52,6 +52,7 @@ param(
 #Group Object ID already set as $GroupID
 #Log File Location $ENV:TEMP\PowerShell_Logs\
 $LogFileDir = "$ENV:Temp\PowerShell_Logs\"
+Write-Host $LogFileDir -BackgroundColor white -ForegroundColor Blue
 If(!(Test-Path $LogFileDir)){mkdir $LogFileDir}
 $LogFileName = "Azure_DirectAssignmentRemoval.log"
 #Combine log file dir and log file name
@@ -121,7 +122,7 @@ $MemberIDs| ForEach-Object {
 
         If($ReprocessUsers){
             LogWrite -logstring "ReprocessUser switch specified. Starting user reprocessing."
-            Redo-MsolProvisionUser -ObjectId $_
+            Redo-MsolProvisionUser -ObjectId $_ -Verbose
         }
     }else{
         LogWrite -logstring "$DisplayName had no directly assigned licenses."
